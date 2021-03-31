@@ -1,19 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <a
+      href="https://play.google.com/store/apps/details?id=capital.dcone.wallet"
+    >
+      <img src="./assets/android.png" class="buttonImg" />
+    </a>
+    <a href="https://apps.apple.com/th/app/dc-one/id1529399567">
+      <img src="./assets/ios.png" class="buttonImg" />
+    </a>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  created() {
+    if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=capital.dcone.wallet";
+    }
+    if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
+      window.location.href =
+        "https://apps.apple.com/th/app/dc-one/id1529399567";
+    }
   }
-}
+};
 </script>
 
 <style>
@@ -24,5 +35,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.buttonImg {
+  width: 150px;
+  height: 80px;
 }
 </style>
